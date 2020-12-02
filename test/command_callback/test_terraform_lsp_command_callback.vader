@@ -15,7 +15,7 @@ Execute(Should send correct LSP language):
   AssertLSPLanguage 'terraform'
 
 Execute(Should load default executable):
-  AssertLinter 'terraform-lsp', ale#Escape('terraform-lsp')
+  AssertLinter 'terraform-ls', ale#Escape('terraform-ls')
 
 Execute(Should configure custom executable):
   let b:ale_terraform_langserver_executable = 'foo'
@@ -24,8 +24,8 @@ Execute(Should configure custom executable):
 Execute(Should set custom options):
   let b:ale_terraform_langserver_options = '--bar'
 
-  AssertLinter 'terraform-lsp',
-  \ ale#Escape('terraform-lsp') . ' --bar'
+  AssertLinter 'terraform-ls',
+  \ ale#Escape('terraform-ls') . ' --bar'
 
 Execute(Should return current directory if it contains .terraform directory):
   call mkdir(g:dir . '/.terraform')
